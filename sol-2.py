@@ -9,6 +9,18 @@ def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
 
     i = k = r = 0
 
+    if nums1 == []:
+            
+            if len(nums2) % 2 == 0:
+                return (nums2[len(nums2) // 2 - 1] + nums2[len(nums2) // 2]) / 2
+            return nums2[len(nums2) // 2]
+
+    if nums2 == []:
+        
+        if len(nums1) % 2 == 0:
+            return (nums1[len(nums1) // 2 - 1] + nums1[len(nums1) // 2]) / 2
+        return nums1[len(nums1) // 2]
+
 
     while i < len(nums1) and k < len(nums2):
 
