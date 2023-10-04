@@ -119,8 +119,8 @@ def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
     return pre
     
             
-nums1 = [1, 2, 3, 3, 3, 3, 3, 4, 5, 8, 30, 50, 51]
-nums2 = [3, 9, 15, 25, 37, 38, 39, 40, 46, 47, 48, 49, 50]
+nums1 = [1, 2, 3, 3, 3,  4, 5, 8, 30, 30, 50, 51]
+nums2 = [3, 9, 15, 25, 30, 30, 30, 37, 38, 39, 40, 46, 47, 48, 49, 50]
 
 print(sorted(nums1 + nums2))
 #print(findMedianSortedArrays(nums1, nums2))
