@@ -90,10 +90,9 @@ def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
 
     try:
         print(nums1[i_1], nums2[i_2], median, pre)
-
-        while k < abs(difference) // 2 + (1 if (L % 2 == 0 or abs(difference) % 2 == 1) else 0):
-
-            if sx:
+        
+        if sx:
+            while k < abs(difference) // 2 + (1 if (L % 2 == 0 or abs(difference) % 2 == 1) else 0):
                 if nums1[i_1-1] <= nums2[i_2]:
                     pre = median
                     median = nums2[i_2]
@@ -104,9 +103,19 @@ def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
                     median = nums1[i_1]
 
                 k += 1
-            else:
-                break
-            print(nums1[i_1], nums2[i_2], median, pre)
+        elif dx:
+            while k < abs(difference) // 2 + (1 if (L % 2 == 0 or abs(difference) % 2 == 1) else 0):
+                if nums1[i_1+1] <= nums2[i_2]:
+                    pre = median
+                    median = nums2[i_2]
+                    i_2 -= 1
+                elif nums1[i_1 - 1] > nums2[i_2]:
+                    pre = median
+                    i_1 -= 1
+                    median = nums1[i_1]
+
+                k += 1
+                print(nums1[i_1], nums2[i_2], median, pre)
     except:
         pass
 
@@ -118,8 +127,8 @@ def findMedianSortedArrays(nums1: list[int], nums2: list[int]) -> float:
 
     return median
             
-nums1 = [1, 2, 3, 5, 8, 30, 46, 50]
-nums2 = [3, 9, 11, 38, 39, 46, 47, 48, 49, 50]
+nums1 = [1, 2, 3, 5, 8, 8, 46,]
+nums2 = [3, 9, 11, 39, 46, 46, 47, 48, 49, 50]
 
 print(sorted(nums1 + nums2))
 #print(findMedianSortedArrays(nums1, nums2))
